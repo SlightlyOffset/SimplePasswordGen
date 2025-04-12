@@ -1,6 +1,13 @@
 '''
-Simple Password Generator:
-    Create a program that generates random passwords of a specified length, with options for including uppercase letters, lowercase letters, numbers, and symbols.
+Simple Password Generator Program
+=================================
+
+This program generate password based on user's options such as whether or not to include uppercase, lowercase, number, or punctuation.
+
+---------
+Author: SlightlyOffset
+Version: 1.0
+---------
 '''
 
 import string as st
@@ -8,6 +15,17 @@ import secrets as sc
 
 def main():
     def genpass(length, include):
+        '''
+        Function to perform password generation with user selected option with error handling for empty sequence(in case no option is selected)
+        
+        Args:
+            length (int): The desired length of the password.
+            include (list): A list of 'y' or 'n' indicating whether to include
+                            uppercase, lowercase, numbers, and punctuation, respectively.
+
+        Returns:
+            str: The generated password.
+        '''
         random_pool = ""
         if include[0] == "y":
             random_pool += st.ascii_uppercase
@@ -26,16 +44,28 @@ def main():
         
         print("\n--- Password Generated ---")
         
+        # Box formatted password display.
         print("")
         print(f" --{'-' * (10 + length)}-- ")
         print(f"|  Password: {password}  |")
         print(f" --{'-' * (10 + length)}-- ")
         
+        print("\nAll passwords generated should not be saved locally without encryption such as .txt or .csv.")
+        
         input("\nPress 'Enter' to return to menu...")
-        print("\n\n")
+        print("\nReloading...")
         return
             
     def get_valid_yes_no(prompt):
+        '''
+        Function for prompting user with error handling(Input validation).
+        
+        Args:
+            prompt (str): The message to display to the user.
+
+        Returns:
+            str: The validated lowercase response ('y' or 'n').
+        '''
         while True:
             response = input(prompt).strip().lower()
             if response in ["y", "n"]:
@@ -44,6 +74,15 @@ def main():
                 print("\nError: Please enter only 'y' or 'n'")
         
     def get_valid_length(prompt):
+        '''
+        Function for prompting password length from user with some error handling.
+        
+        Args:
+            prompt (str): The message to display to the user.
+
+        Returns:
+            int: The validated positive integer length.
+        '''
         while True:
             try:
                 length = int(input(prompt))
@@ -55,6 +94,11 @@ def main():
                 print("\nError: Invalid input. Please enter a number.")
     
     def menu():
+        '''
+        Display the main menu for Password Generator.
+        
+        Allow user to choose what and what not to include in the random pool for password generation and display before proceeding with user input(y/n)
+        '''
         print("--- Password Generator ---")
         
         while True:
@@ -71,6 +115,7 @@ def main():
                 
                 include_list = [uppercase, lowercase, number, punctuation]
                 
+                # Raise warn flag if all options is not selected.
                 warn_flag = False
                 no_counter = 0
                 for inclusion in include_list:
@@ -80,6 +125,7 @@ def main():
                 if no_counter == 4:     # All options is not selected --> Error
                     warn_flag = True
                     
+                # Box formatted options display.
                 print("")
                 print("","-" * 30)
                 print(f"| Random pool will include: {'':<3}|")
@@ -89,11 +135,13 @@ def main():
                 print(f"| Punctuation Characters: {'yes' if punctuation == 'y' else 'no':<5}|")
                 print("","-" * 30)
                 
+                # Box formatted password length display.
                 print("")
                 print(f" --{'-' * (17 + len(str(length)))}-- ")
                 print(f"|  Password length: {length}  |")
                 print(f" --{'-' * (17 + len(str(length)))}-- ")
                 
+                # Display warning message if no options is selected.
                 print("WARNING: All options is deselected. Proceeding will result in an error.") if warn_flag else print("")
                 
                 while True:

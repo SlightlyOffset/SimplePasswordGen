@@ -13,6 +13,7 @@ A simple terminal-based password generator that allows the user to select which 
 - Customizable character pool
 - Error handling for invalid inputs and empty character pools
 - Formatted terminal output for enhanced readability
+- Shannon entropy for password strength estimation
 
 ---
 
@@ -117,6 +118,7 @@ All passwords generated should not be saved locally without encryption such as .
 
 - `secrets` (Standard library)
 - `string` (Standard library)
+- `math` (Standard library) --> for strength estimation in `entropy.py`
 
 ---
 
@@ -146,6 +148,6 @@ All passwords generated should not be saved locally without encryption such as .
 ## 🧑‍💻 Author
 
 **SlightlyOffset**  
-Version: 1.0
-
+Version: 1.1
+Update: 13 June 2025
 ---

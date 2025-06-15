@@ -6,7 +6,7 @@ A simple terminal-based password generator that allows the user to select which 
 
 ---
 
-Update:
+## 🔼 Update:
 - 15 June 2025: Minor update on input validation(mainly reduce redundancy)
 - 13 June 2025: Implemented Shannon entropy for password strength estimation log2(r^l) (prototype - still assumes even distribution of characters) 
 
@@ -16,7 +16,7 @@ Update:
 
 - Interactive CLI menu
 - User input validation
-- Customizable character pool
+- Customisable character pool
 - Error handling for invalid inputs and empty character pools
 - Formatted terminal output for enhanced readability
 - Shannon entropy for password strength estimation

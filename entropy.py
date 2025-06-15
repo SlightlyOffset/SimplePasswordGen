@@ -55,13 +55,13 @@ def main(include, password):
     '''
     r = 0
     l = len(password)
-    if include[0] == "y":    # Uppercase 26 characters
+    if include[0]:    # Uppercase 26 characters
         r += 26
-    if include[1] == "y":    # Lowercase 26 characters
+    if include[1]:    # Lowercase 26 characters
         r += 26
-    if include[2] == "y":    # Digits 10 characters
+    if include[2]:    # Digits 10 characters
         r += 10
-    if include[3] == "y":    # Punctuation 32 characters
+    if include[3]:    # Punctuation 32 characters
         r += 32
 
     entropy_e = entropy(r, l)

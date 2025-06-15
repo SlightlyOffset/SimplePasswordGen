@@ -6,8 +6,8 @@ This program generate password based on user's options such as whether or not to
 
 ---------
 Author: SlightlyOffset
-Version: 1.1
-Update: 13 June 2025
+Version: 1.11
+Update: 15 June 2025
 ---------
 '''
 
@@ -34,13 +34,13 @@ def genpass(length, include):
         str: The generated password.
     '''
     random_pool = ""
-    if include[0] == "y":
+    if include[0]:
         random_pool += st.ascii_uppercase
-    if include[1] == "y":
+    if include[1]:
         random_pool += st.ascii_lowercase
-    if include[2] == "y":
+    if include[2]:
         random_pool += st.digits
-    if include[3] == "y":
+    if include[3]:
         random_pool += st.punctuation
     try:
         password = "".join(sc.choice(random_pool) for _ in range(length))
@@ -67,7 +67,9 @@ def genpass(length, include):
     print(f"|  Estimated strength: {password_strength}  |")
     print(f" --{'-' * (20 + len(password_strength))}-- ")
 
-    print("\nNOTE: All passwords generated should not be saved locally without encryption such as .txt or .csv.")
+    print("\nNOTE: The strength estimation assume even distribution of characters(e.g. uppercase, lowercase, etc)")
+    print("        thus the estimation can be off.")
+    print("NOTE: All passwords generated should not be saved locally without encryption such as .txt or .csv.")
 
     input("\nPress 'Enter' to return to menu...")
     print("\nReloading...")
@@ -86,10 +88,10 @@ def main():
         '''
         while True:
             response = input(prompt).strip().lower()
-            if response in ["y", "n", ""]:
-                if response == "":
-                    response = "y"
-                return response
+            if response in ["y", ""]:
+                return True
+            elif response in ["n"]:
+                return False
             else:
                 print("\nERROR: Please enter only 'y' or 'n'")
 
@@ -122,9 +124,9 @@ def main():
         print("--- Password Generator ---")
 
         while True:
-            begin = input("\nBegin? (Y/n): ")
+            begin = get_valid_yes_no("\nBegin? (Y/n): ")
 
-            if begin.strip().lower() == "y" or begin.strip().lower() == "":
+            if begin:
                 print("\nPassword length is recommended to be 8 characters long or more.")
                 length = get_valid_length("Password length: ")
 
@@ -139,7 +141,7 @@ def main():
                 warn_flag = False
                 no_counter = 0
                 for inclusion in include_list:
-                    if inclusion == "n":
+                    if not inclusion:
                         no_counter += 1
 
                 if no_counter == 4:     # All options is not selected --> Error
@@ -149,10 +151,10 @@ def main():
                 print("")
                 print("","-" * 30)
                 print(f"| Random pool will include: {'':<3}|")
-                print(f"| Uppercase Characters: {'yes' if uppercase == 'y' else 'no':<7}|")
-                print(f"| Lowercase Characters: {'yes' if lowercase == 'y' else 'no':<7}|")
-                print(f"| Number Characters: {'yes' if number == 'y' else 'no':<10}|")
-                print(f"| Punctuation Characters: {'yes' if punctuation == 'y' else 'no':<5}|")
+                print(f"| Uppercase Characters: {'yes' if uppercase else 'no':<7}|")
+                print(f"| Lowercase Characters: {'yes' if lowercase else 'no':<7}|")
+                print(f"| Number Characters: {'yes' if number else 'no':<10}|")
+                print(f"| Punctuation Characters: {'yes' if punctuation else 'no':<5}|")
                 print("","-" * 30)
 
                 # Box formatted password length display.
@@ -165,22 +167,17 @@ def main():
                 print("WARNING: All options is deselected. Proceeding will result in an error.") if warn_flag else print("")
 
                 while True:
-                    confirm = input("\nContinue with selected options? (Y/n): ").lower().strip()
-                    if confirm in ["y", ""]:
+                    confirm = get_valid_yes_no("\nContinue with selected options? (Y/n): ")
+                    if confirm:
                         genpass(length, include_list)
                         break
-                    elif confirm == "n":
+                    else:
                         print("\nReturning to menu...")
                         break
-                    else:
-                        print("\nERROR: Accept only 'y' and 'n' input.\n")
-
-            elif begin.strip().lower() == "n":
-                print("\nExiting...")
-                return
 
             else:
-                print("\nERROR: Accept only 'y' and 'n' input.\n")
+                print("\nExiting...")
+                return
 
     menu()
 

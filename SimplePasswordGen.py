@@ -84,7 +84,8 @@ def main():
             prompt (str): The message to display to the user.
 
         Returns:
-            str: The validated lowercase response ('y' or 'n').
+            bool: True for yes (y/Enter), False for no (n)
+ 
         '''
         while True:
             response = input(prompt).strip().lower()

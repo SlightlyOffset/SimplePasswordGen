@@ -46,10 +46,11 @@ Generates a password using the selected options.
 
 **Parameters:**
 - `length (int)`: Password length
-- `include (list[str])`: List of 'y' or 'n' for each character type
+- `include (list[bool])`: List of `True` or `False` for each character type
 
 **Returns:**  
-A randomly generated password (printed, not returned)
+- A randomly generated password (printed, not returned)
+- Estimated password strength
 
 ---
 

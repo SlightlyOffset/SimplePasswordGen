@@ -6,6 +6,12 @@ A simple terminal-based password generator that allows the user to select which 
 
 ---
 
+Update:
+- 15 June 2025: Minor update on input validation(mainly reduce redundancy)
+- 13 June 2025: Implemented Shannon entropy for password strength estimation log2(r^l) (prototype - still assumes even distribution of characters) 
+
+---
+
 ## 📌 Features
 
 - Interactive CLI menu
@@ -54,7 +60,7 @@ Prompts the user for 'y' or 'n' input with validation.
 - `prompt (str)`: Message to display
 
 **Returns:**  
-- `str`: Validated lowercase 'y' or 'n'
+- `bool`: True for yes (y/Enter), False for no (n)
 
 ---
 
@@ -89,27 +95,33 @@ Include lowercase letters?(Y/n): y
 Include number?(Y/n): y
 Include punctuation?(Y/n): n
 
- ------------------------------
+ -----------------------------
 | Random pool will include:   |
 | Uppercase Characters: yes   |
 | Lowercase Characters: yes   |
 | Number Characters: yes      |
 | Punctuation Characters: no  |
- ------------------------------
+ -----------------------------
 
- ------------------------ 
+ -----------------------
 |  Password length: 12  |
- ------------------------
+ -----------------------
 
 Continue with selected options? (Y/n): y
 
 --- Password Generated ---
 
- ------------------------ 
+ -------------------------- 
 |  Password: AbC1xY7eZwQ9  |
- ------------------------
+ --------------------------
 
-All passwords generated should not be saved locally without encryption such as .txt or .csv.
+ ------------------------------ 
+|  Estimated strength: Strong  |
+ ------------------------------
+ 
+NOTE: The strength estimation assume even distribution of characters(e.g. uppercase, lowercase, etc)
+        thus the estimation can be off.
+NOTE: All passwords generated should not be saved locally without encryption such as .txt or .csv.
 ```
 
 ---
@@ -131,7 +143,7 @@ All passwords generated should not be saved locally without encryption such as .
 - **CLI Argument Support**  
   Allow password generation via command-line arguments for automation/scripting.
 
-- **Password Strength Estimation**  
+- **Password Strength Estimation(Ongoing)**  
   Provide feedback on password strength based on selected options and length.
 
 - **Clipboard Copy Option**  
@@ -148,6 +160,6 @@ All passwords generated should not be saved locally without encryption such as .
 ## 🧑‍💻 Author
 
 **SlightlyOffset**  
-Version: 1.1
-Update: 13 June 2025
+Version: 1.11
+Update: 15 June 2025
 ---

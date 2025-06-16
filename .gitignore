@@ -1,1 +1,17 @@
 __pycache__/entropy.cpython-312.pyc
+build/SimplePasswordGen/Analysis-00.toc
+build/SimplePasswordGen/base_library.zip
+build/SimplePasswordGen/EXE-00.toc
+build/SimplePasswordGen/localpycs/pyimod01_archive.pyc
+build/SimplePasswordGen/localpycs/pyimod02_importers.pyc
+build/SimplePasswordGen/localpycs/pyimod03_ctypes.pyc
+build/SimplePasswordGen/localpycs/pyimod04_pywin32.pyc
+build/SimplePasswordGen/localpycs/struct.pyc
+build/SimplePasswordGen/PKG-00.toc
+build/SimplePasswordGen/PYZ-00.pyz
+build/SimplePasswordGen/PYZ-00.toc
+build/SimplePasswordGen/SimplePasswordGen.pkg
+build/SimplePasswordGen/warn-SimplePasswordGen.txt
+build/SimplePasswordGen/xref-SimplePasswordGen.html
+dist/SimplePasswordGen.exe
+SimplePasswordGen.spec

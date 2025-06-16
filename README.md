@@ -7,6 +7,8 @@ A simple terminal-based password generator that allows the user to select which 
 ---
 
 ## 🔼 Update:
+- 16 June 2025: Minor update on condition checking on `SimplePasswordGen.py`
+- 16 June 2025: Update on entropy calculation. Switching from pool-based entropy(Ideal entropy) to hybrid-entropy(Ideal entropy + Shannon entropy)
 - 15 June 2025: Minor update on input validation(mainly reduce redundancy)
 - 13 June 2025: Implemented Shannon entropy for password strength estimation log2(r^l) (prototype - still assumes even distribution of characters) 
 
@@ -19,7 +21,7 @@ A simple terminal-based password generator that allows the user to select which 
 - Customisable character pool
 - Error handling for invalid inputs and empty character pools
 - Formatted terminal output for enhanced readability
-- Shannon entropy for password strength estimation
+- Password strength estimation using hybrid-entropy
 
 ---
 
@@ -120,8 +122,8 @@ Continue with selected options? (Y/n): y
 |  Estimated strength: Strong  |
  ------------------------------
  
-NOTE: The strength estimation assume even distribution of characters(e.g. uppercase, lowercase, etc)
-        thus the estimation can be off.
+NOTE: The strength estimation did not reflect the real world strength against attacking attempts.
+       User still need to practice cautions while using the password.
 NOTE: All passwords generated should not be saved locally without encryption such as .txt or .csv.
 ```
 
@@ -132,6 +134,7 @@ NOTE: All passwords generated should not be saved locally without encryption suc
 - `secrets` (Standard library)
 - `string` (Standard library)
 - `math` (Standard library) --> for strength estimation in `entropy.py`
+- `collections` (Standard library) --> for strength estimation in `entropy.py`
 
 ---
 

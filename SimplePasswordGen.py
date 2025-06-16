@@ -2,12 +2,35 @@
 Simple Password Generator Program
 =================================
 
-This program generate password based on user's options such as whether or not to include uppercase, lowercase, number, or punctuation.
+This is a terminal-based password generator that allows users to customize their
+passwords by selecting whether to include uppercase letters, lowercase letters,
+digits, and punctuation symbols. The program generates secure passwords using
+Python's `secrets` module for cryptographically strong randomness.
+
+Features:
+---------
+- Customizable character pool (uppercase, lowercase, digits, punctuation)
+- User input validation with helpful prompts and error handling
+- Visually formatted password output for readability
+- Hybrid entropy-based password strength estimation (if 'entropy.py' is available)
+- Graceful fallback when strength module is missing
+- Emphasis on user security awareness and good password practices
+
+Dependencies:
+-------------
+- Standard libraries: `string`, `secrets`
+- Optional module: `entropy.py` (for password strength evaluation)
+
+Security Notes:
+---------------
+- Passwords are NOT stored or logged.
+- Users are warned not to save generated passwords in plain text files.
+- Estimated strength does NOT reflect real-world resistance to all attack vectors.
 
 ---------
 Author: SlightlyOffset
 Version: 1.11
-Update: 15 June 2025
+Updated: 16 June 2025
 ---------
 '''
 
@@ -34,14 +57,10 @@ def genpass(length, include):
         str: The generated password.
     '''
     random_pool = ""
-    if include[0]:
-        random_pool += st.ascii_uppercase
-    if include[1]:
-        random_pool += st.ascii_lowercase
-    if include[2]:
-        random_pool += st.digits
-    if include[3]:
-        random_pool += st.punctuation
+    if include[0]: random_pool += st.ascii_uppercase
+    if include[1]: random_pool += st.ascii_lowercase
+    if include[2]: random_pool += st.digits
+    if include[3]: random_pool += st.punctuation
     try:
         password = "".join(sc.choice(random_pool) for _ in range(length))
     except IndexError:
@@ -67,12 +86,12 @@ def genpass(length, include):
     print(f"|  Estimated strength: {password_strength}  |")
     print(f" --{'-' * (20 + len(password_strength))}-- ")
 
-    print("\nNOTE: The strength estimation assume even distribution of characters(e.g. uppercase, lowercase, etc)")
-    print("        thus the estimation can be off.")
+    print("\nNOTE: The strength estimation did not reflect the real world strength against attacking attempts.")
+    print("       User still need to practice cautions while using the password.")
     print("NOTE: All passwords generated should not be saved locally without encryption such as .txt or .csv.")
 
     input("\nPress 'Enter' to return to menu...")
-    print("\nReloading...")
+    print("\nReturning to menu...")
     return
 
 def main():
@@ -149,7 +168,7 @@ def main():
                     warn_flag = True
 
                 # Box formatted options display.
-                print("")
+                print()
                 print("","-" * 30)
                 print(f"| Random pool will include: {'':<3}|")
                 print(f"| Uppercase Characters: {'yes' if uppercase else 'no':<7}|")
@@ -159,7 +178,7 @@ def main():
                 print("","-" * 30)
 
                 # Box formatted password length display.
-                print("")
+                print()
                 print(f" --{'-' * (17 + len(str(length)))}-- ")
                 print(f"|  Password length: {length}  |")
                 print(f" --{'-' * (17 + len(str(length)))}-- ")

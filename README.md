@@ -164,6 +164,6 @@ NOTE: All passwords generated should not be saved locally without encryption suc
 ## 🧑‍💻 Author
 
 **SlightlyOffset**  
-Version: 1.11
+Version: 1.1.1-beta
 Update: 15 June 2025
 ---

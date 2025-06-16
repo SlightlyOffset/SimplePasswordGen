@@ -29,7 +29,7 @@ Security Notes:
 
 ---------
 Author: SlightlyOffset
-Version: 1.11
+Version: 1.1.1-beta
 Updated: 16 June 2025
 ---------
 '''

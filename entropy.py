@@ -11,7 +11,7 @@ This helps capture both theoretical strength and real-world randomness.
 
 ---------
 Author: SlightlyOffset
-Version: 1.2 (Prototype)
+Version: 1.1.0-alpha (Prototype)
 Update: 16 June 2025
 ---------
 '''

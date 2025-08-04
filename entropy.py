@@ -10,9 +10,12 @@ By comparing both estimates, the more conservative (lower) value is chosen as th
 This helps capture both theoretical strength and real-world randomness.
 
 ---------
-Author: SlightlyOffset
+Author: SlightlyOffset (Thitiwat Monwiset | ID: 68070035)
 Version: 1.1.0-alpha (Prototype)
 Update: 16 June 2025
+---------
+This project is now part of the PSCP (Problem-Solving and Computer Programming) course
+at King Mongkut's Institute of Technology Ladkrabang (KMITL).
 ---------
 '''
 from math import log2, pow, floor

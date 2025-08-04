@@ -28,9 +28,12 @@ Security Notes:
 - Estimated strength does NOT reflect real-world resistance to all attack vectors.
 
 ---------
-Author: SlightlyOffset
+Author: SlightlyOffset (Thitiwat Monwiset | ID: 68070035)
 Version: 1.1.1-beta
 Updated: 16 June 2025
+---------
+This project is now part of the PSCP (Problem-Solving and Computer Programming) course
+at King Mongkut's Institute of Technology Ladkrabang (KMITL).
 ---------
 '''
 

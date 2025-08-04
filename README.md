@@ -163,10 +163,10 @@ NOTE: All passwords generated should not be saved locally without encryption suc
 
 ## 🧑‍💻 Author
 
-**SlightlyOffset**
-**(Thitiwat Monwiset | ID: 68070035)**
-Version: 1.1.1-beta
-Update: 15 June 2025
+- **SlightlyOffset**
+- **(Thitiwat Monwiset | ID: 68070035)**
+- Version: 1.1.1-beta
+- Update: 15 June 2025
 ---
 This project is now part of the PSCP (Problem-Solving and Computer Programming) course
 at King Mongkut's Institute of Technology Ladkrabang (KMITL).
